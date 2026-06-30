@@ -375,8 +375,8 @@ call :log "Process completed successfully."
 call :purge_workdir
 echo Log saved to: "%FINAL_LOG%"
 echo.
-echo Press any key to exit.
-pause >nul
+echo Exiting automatically in 3 seconds...
+timeout /t 3 >nul
 exit /b 0
 
 
