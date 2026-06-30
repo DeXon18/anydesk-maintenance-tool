@@ -1,5 +1,3 @@
-![AnyDesk Maintenance Toolkit](docs/header.png)
-
 # AnyDesk Maintenance Toolkit
 
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-blue)
@@ -28,11 +26,12 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DeXon18/anydesk-mainte
 
 ### Linux / macOS
 
-*For Unix-based platforms, download the shell scripts via `wget` or `curl` and run them with `sudo`. See the [Manual Usage](#manual-usage) section for more details.*
+_For Unix-based platforms, download the shell scripts via `wget` or `curl` and run them with `sudo`. See the [Manual Usage](#manual-usage) section for more details._
 
 ---
 
 ## 📑 Table of Contents
+
 - [What this project does](#what-this-project-does)
 - [What this project does not do](#what-this-project-does-not-do)
 - [Manual Usage](#manual-usage)
@@ -102,7 +101,7 @@ sudo ././anydesk-maintenance.sh
 > [!TIP]
 > The temporary working directory is removed automatically at the end of the execution, but the final log is preserved for review.
 
-**Windows:** The latest execution log is saved to `%TEMP%\AnyDesk_Maintenance_last.log`  
+**Windows:** The latest execution log is saved to `%TEMP%\AnyDesk_Maintenance_last.log`
 **Linux / macOS:** The latest execution log is saved to `/tmp/anydesk-maintenance-last.log`
 
 ---
