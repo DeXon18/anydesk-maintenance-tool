@@ -76,14 +76,33 @@ if errorlevel 1 (
 )
 
 :: ==================================================
-:: Safe cleanup
-:: Identity, licensing, access control, auditing and traceability files
-:: are not modified by this script.
+:: Reset Identity
 :: ==================================================
-call :safe_cleanup
+call :reset_identity
 if errorlevel 1 (
-    call :log "Cleanup did not complete fully. Continuing, but review the log."
+    call :log "Identity reset failed."
+    goto cleanup_error
 )
+
+:: ==================================================
+:: Generate New ID
+:: ==================================================
+call :start_any
+if errorlevel 1 (
+    call :log "AnyDesk could not be started to generate new ID."
+    goto cleanup_error
+)
+
+call :wait_new_id
+if errorlevel 1 (
+    call :log "Timeout waiting for new AnyDesk ID."
+    goto cleanup_error
+)
+
+:: ==================================================
+:: Stop AnyDesk again to restore settings
+:: ==================================================
+call :stop_any
 
 :: ==================================================
 :: Restore user configuration
@@ -95,7 +114,7 @@ if errorlevel 1 (
 )
 
 :: ==================================================
-:: Start AnyDesk
+:: Start AnyDesk (Final)
 :: ==================================================
 call :start_any
 if errorlevel 1 (
@@ -155,45 +174,43 @@ exit /b 0
 
 
 :: ==================================================
-:: SAFE CLEANUP
+:: RESET IDENTITY
 :: ==================================================
-:safe_cleanup
-call :log "Running safe cleanup."
+:reset_identity
+call :log "Removing configuration to reset ID."
 
-set "CLEAN_ERR=0"
-
-if exist "%AD_USER_DIR%\thumbnails" (
-    rd /s /q "%AD_USER_DIR%\thumbnails" 2>nul
-    if exist "%AD_USER_DIR%\thumbnails" (
-        call :log "WARNING: not all user thumbnails could be removed."
-        set "CLEAN_ERR=1"
-    ) else (
-        call :log "User thumbnails removed."
-    )
+if exist "%AD_SYSTEM_DIR%" (
+    del /f /a /q "%AD_SYSTEM_DIR%\*" >nul 2>&1
 )
 
-:: Optional cleanup of trace/cache files if they exist
-if exist "%AD_USER_DIR%\ad.trace" (
-    del /f /q "%AD_USER_DIR%\ad.trace" 2>nul
-    if exist "%AD_USER_DIR%\ad.trace" (
-        call :log "WARNING: could not remove user trace file: ad.trace"
-        set "CLEAN_ERR=1"
-    ) else (
-        call :log "User trace file removed: ad.trace"
-    )
+if exist "%AD_USER_DIR%" (
+    del /f /a /q "%AD_USER_DIR%\*" >nul 2>&1
+    if exist "%AD_USER_DIR%\thumbnails" rd /s /q "%AD_USER_DIR%\thumbnails" >nul 2>&1
 )
 
-if exist "%AD_SYSTEM_DIR%\ad_svc.trace" (
-    del /f /q "%AD_SYSTEM_DIR%\ad_svc.trace" 2>nul
-    if exist "%AD_SYSTEM_DIR%\ad_svc.trace" (
-        call :log "WARNING: could not remove service trace file: ad_svc.trace"
-        set "CLEAN_ERR=1"
-    ) else (
-        call :log "Service trace file removed: ad_svc.trace"
-    )
+exit /b 0
+
+:: ==================================================
+:: WAIT FOR NEW ID
+:: ==================================================
+:wait_new_id
+call :log "Waiting for new AnyDesk ID to be generated..."
+
+set /a lic_count=0
+
+:wait_lic
+find "ad.anynet.id=" "%AD_SYSTEM_DIR%\system.conf" >nul 2>&1
+if not errorlevel 1 (
+    call :log "New ID generated successfully."
+    exit /b 0
 )
 
-exit /b %CLEAN_ERR%
+timeout /t 1 >nul
+set /a lic_count+=1
+
+if !lic_count! lss %START_WAIT_LIMIT% goto wait_lic
+
+exit /b 1
 
 
 :: ==================================================
