@@ -2,7 +2,7 @@
 
 This project is intended for authorized AnyDesk maintenance and troubleshooting tasks only.
 
-These scripts must not be used to bypass licensing, device identity, access control, auditing, usage restrictions or traceability mechanisms.
+These scripts must not be used to bypass licensing, access control, auditing, usage restrictions or traceability mechanisms.
 
 ## Supported versions
 
@@ -19,7 +19,7 @@ Before running any script, review its content and confirm that it matches your e
 
 Do not execute remote scripts blindly from the internet.
 
-Do not use this project to alter, hide, reset or regenerate AnyDesk IDs, licensing data, access controls or audit information.
+Do not use this project to alter, hide, reset or regenerate licensing data, access controls or audit information.
 
 ## Reporting a security issue
 
@@ -53,10 +53,8 @@ The following issues are in scope:
 
 The following requests are out of scope:
 
-- Resetting AnyDesk IDs.
 - Bypassing AnyDesk licensing.
 - Removing commercial-use restrictions.
-- Altering device identity.
 - Hiding usage history.
 - Disabling auditing or traceability.
 - Unlocking paid features.
@@ -68,7 +66,7 @@ Please allow reasonable time for review before sharing technical details publicl
 
 If the issue is valid, it will be reviewed and addressed in a future update.
 
-Reports requesting bypasses, cracks, license resets or identity manipulation will be closed without action.
+Reports requesting bypasses, cracks, or license resets will be closed without action.
 
 ## Disclaimer
 
