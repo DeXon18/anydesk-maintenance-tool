@@ -5,22 +5,19 @@
 ![Shell](https://img.shields.io/badge/scripts-Batch%20%7C%20Bash-lightgrey)
 ![Status](https://img.shields.io/badge/status-active-success)
 
-Maintenance scripts for authorized AnyDesk support tasks on Windows and Linux.
+Maintenance scripts for AnyDesk support tasks on Windows, Linux, and macOS.
 
-This toolkit is intended for basic troubleshooting scenarios where AnyDesk is installed but the service, process, cache, traces or user-side temporary files may be causing issues. It can securely reset the AnyDesk ID on Windows, which helps resolve eternal wait times and connection limits caused by corrupted session states.
-
-> [!NOTE]
-> It does not modify, hide or regenerate licenses, access controls, audit data or traceability mechanisms.
+This toolkit is intended for basic troubleshooting scenarios where AnyDesk is installed but the service, processes, cache, or temporary files are causing issues.
 
 ### 🔄 Reset AnyDesk Free License (ID)
 
-This script allows you to reset the AnyDesk free license, removing the block that prevents connections to other devices after continuous use.
+The primary feature of the Windows script is securely resetting the AnyDesk ID. This removes the block that prevents connections to other devices after continuous use, effectively resolving "eternal wait times" and connection limits.
 
 > [!WARNING]
-> **Important:** This is not a crack. The goal is to restore the functionality of AnyDesk with the free license, within the limitations of the application itself. It will not unlock AnyDesk permanently! It only allows you to use it for free again without interruptions.
+> **Important:** This is not a crack. The goal is to restore the functionality of the free version within the limitations of the application itself. It does not permanently unlock AnyDesk, nor does it modify real licenses, access controls, or traceability mechanisms. It simply allows you to use the free version again without interruptions.
 
 > [!TIP]
-> We strongly recommend purchasing an official license if you intend to use it frequently or professionally.
+> We strongly recommend purchasing an official license if you intend to use AnyDesk frequently or in a professional environment.
 
 ---
 
