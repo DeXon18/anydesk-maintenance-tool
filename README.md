@@ -11,7 +11,7 @@ Maintenance scripts for authorized AnyDesk support tasks on Windows and Linux.
 
 This toolkit is intended for basic troubleshooting scenarios where AnyDesk is installed but the service, process, cache, traces or user-side temporary files may be causing issues.
 
-It does not modify, hide or regenerate licenses, access controls, audit data or traceability mechanisms. It can be used to securely reset the AnyDesk ID on Windows.
+It does not modify, hide or regenerate licenses, access controls, audit data or traceability mechanisms. It can securely reset the AnyDesk ID on Windows, which helps resolve eternal wait times and connection limits caused by corrupted session states.
 
 ## Current status
 
@@ -203,10 +203,10 @@ Use this toolkit when:
 - The AnyDesk service is stuck.
 - AnyDesk remains open in the background after closing it.
 - The application behaves incorrectly after an update.
-- You need a controlled restart during a support session.
+- You are experiencing connection timeouts, "wait for connection" limits, or eternal wait times due to a corrupted identity state.
 - You want a repeatable support procedure with logging.
 
-Do not use this toolkit to bypass licensing, usage limits, identity checks or access restrictions.
+Do not use this toolkit to bypass access restrictions or modify auditing mechanisms.
 
 ## Responsible use
 
