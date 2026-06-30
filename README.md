@@ -18,7 +18,7 @@ It does not reset, modify, hide or regenerate AnyDesk IDs, licenses, access cont
 | Platform | Status | Script |
 |---|---|---|
 | Windows | Available | `scripts/windows/anydesk-maintenance.bat` |
-| Linux | Planned | `scripts/linux/anydesk-maintenance.sh` |
+| Linux | Available | `scripts/linux/anydesk-maintenance.sh` |
 | macOS | Not planned | N/A |
 
 ## What this project does
