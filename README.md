@@ -1,27 +1,48 @@
+![AnyDesk Maintenance Toolkit](docs/header.png)
+
 # AnyDesk Maintenance Toolkit
 
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Shell](https://img.shields.io/badge/scripts-Batch%20%7C%20Bash-lightgrey)
 ![Status](https://img.shields.io/badge/status-active-success)
-![Maintenance](https://img.shields.io/badge/purpose-authorized%20maintenance-orange)
-![Security](https://img.shields.io/badge/security-no%20license%20bypass-red)
 
 Maintenance scripts for authorized AnyDesk support tasks on Windows and Linux.
 
-This toolkit is intended for basic troubleshooting scenarios where AnyDesk is installed but the service, process, cache, traces or user-side temporary files may be causing issues.
+This toolkit is intended for basic troubleshooting scenarios where AnyDesk is installed but the service, process, cache, traces or user-side temporary files may be causing issues. It can securely reset the AnyDesk ID on Windows, which helps resolve eternal wait times and connection limits caused by corrupted session states.
 
-It does not modify, hide or regenerate licenses, access controls, audit data or traceability mechanisms. It can securely reset the AnyDesk ID on Windows, which helps resolve eternal wait times and connection limits caused by corrupted session states.
+> [!NOTE]
+> It does not modify, hide or regenerate licenses, access controls, audit data or traceability mechanisms.
 
-## Current status
+---
 
-| Platform | Status | Script |
-|---|---|---|
-| Windows | Available | `scripts/windows/anydesk-maintenance.cmd` |
-| Linux | Available | `scripts/linux/anydesk-maintenance.sh` |
-| macOS | Available | `scripts/macos/anydesk-maintenance.sh` |
+## ⚡ Quick Start
 
-## What this project does
+### Windows
+
+The fastest way to resolve eternal wait times or connection limits on Windows is via this one-liner. Open PowerShell as Administrator and run:
+
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DeXon18/anydesk-maintenance-toolkit/main/scripts/windows/anydesk-maintenance.cmd?v=$RANDOM" -OutFile "anydesk-maintenance.cmd"; (Get-Content "anydesk-maintenance.cmd") | Set-Content "anydesk-maintenance.cmd"; Start-Process "anydesk-maintenance.cmd" -Verb RunAs
+```
+
+### Linux / macOS
+
+*For Unix-based platforms, download the shell scripts via `wget` or `curl` and run them with `sudo`. See the [Manual Usage](#manual-usage) section for more details.*
+
+---
+
+## 📑 Table of Contents
+- [What this project does](#what-this-project-does)
+- [What this project does not do](#what-this-project-does-not-do)
+- [Manual Usage](#manual-usage)
+- [Logs](#logs)
+- [Recommended use cases](#recommended-use-cases)
+- [Responsible use](#responsible-use)
+
+---
+
+## 🛠️ What this project does
 
 - Stops the AnyDesk service or application when possible.
 - Closes stuck AnyDesk processes.
@@ -32,206 +53,80 @@ It does not modify, hide or regenerate licenses, access controls, audit data or 
 - Opens AnyDesk after the maintenance process when supported.
 - Saves an execution log for troubleshooting.
 
-## What this project does not do
+## 🚫 What this project does not do
 
 This toolkit is not a crack, bypass, or license reset tool.
 
-It will not unlock paid features, remove commercial-use limits, alter licensing state, or bypass AnyDesk restrictions.
+It will not unlock paid features, remove commercial-use limits, alter licensing state, or bypass AnyDesk restrictions. If you use AnyDesk frequently or in a professional environment, use an official AnyDesk license.
 
-If you use AnyDesk frequently or in a professional environment, use an official AnyDesk license.
+---
 
-## Supported systems
+## 💻 Manual Usage
 
-- Windows
-- Linux
-- macOS
+<details>
+<summary><strong>Windows</strong></summary>
 
-## Requirements
+1. Download the file: `scripts/windows/anydesk-maintenance.cmd`
+2. Right-click the file and select "Run as administrator".
+3. Wait until the script finishes.
+4. Review the log if an error appears.
 
-### Windows
+</details>
 
-- AnyDesk installed.
-- Administrator permissions.
-- PowerShell or Command Prompt.
-- Windows service access.
-
-### Linux
-
-- AnyDesk installed.
-- `sudo` permissions.
-- `systemd` based distribution recommended.
-
-### macOS
-
-- AnyDesk installed in `/Applications/AnyDesk.app`.
-- Administrator permissions.
-- Terminal access.
-
-## Repository structure
-
-```txt
-anydesk-maintenance-toolkit/
-├─ README.md
-├─ LICENSE
-├─ CHANGELOG.md
-├─ SECURITY.md
-├─ .gitignore
-├─ scripts/
-│  ├─ windows/
-│  │  └─ anydesk-maintenance.cmd
-│  ├─ linux/
-│  │  └─ anydesk-maintenance.sh
-│  └─ macos/
-│     └─ anydesk-maintenance.sh
-└─ docs/
-   ├─ windows-usage.md
-   ├─ linux-usage.md
-   ├─ macos-usage.md
-   └─ troubleshooting.md
-```
-
-## Quick start
-
-### Windows
-
-Open PowerShell and run:
-
-```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DeXon18/anydesk-maintenance-toolkit/main/scripts/windows/anydesk-maintenance.cmd?v=$RANDOM" -OutFile "anydesk-maintenance.cmd"; (Get-Content "anydesk-maintenance.cmd") | Set-Content "anydesk-maintenance.cmd"; Start-Process "anydesk-maintenance.cmd" -Verb RunAs
-```
-
-The script will request administrator permissions before running.
-
-### Linux
-
-Run:
+<details>
+<summary><strong>Linux</strong></summary>
 
 ```bash
 wget https://raw.githubusercontent.com/DeXon18/anydesk-maintenance-toolkit/main/scripts/linux/anydesk-maintenance.sh -O anydesk-maintenance.sh
 chmod +x anydesk-maintenance.sh
-sudo ./anydesk-maintenance.sh
+sudo ././anydesk-maintenance.sh
 ```
 
-### macOS
+</details>
 
-Run:
+<details>
+<summary><strong>macOS</strong></summary>
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/DeXon18/anydesk-maintenance-toolkit/main/scripts/macos/anydesk-maintenance.sh -o anydesk-maintenance.sh
 chmod +x anydesk-maintenance.sh
-sudo ./anydesk-maintenance.sh
+sudo ././anydesk-maintenance.sh
 ```
 
-## Manual Windows usage
+</details>
 
-1. Download the file:
+---
 
-```txt
-scripts/windows/anydesk-maintenance.cmd
-```
+## 📄 Logs
 
-2. Right-click the file.
-3. Select "Run as administrator".
-4. Wait until the script finishes.
-5. Review the log if an error appears.
+> [!TIP]
+> The temporary working directory is removed automatically at the end of the execution, but the final log is preserved for review.
 
-## Manual Linux usage
+**Windows:** The latest execution log is saved to `%TEMP%\AnyDesk_Maintenance_last.log`  
+**Linux / macOS:** The latest execution log is saved to `/tmp/anydesk-maintenance-last.log`
 
-1. Download the file:
+---
 
-```txt
-scripts/linux/anydesk-maintenance.sh
-```
-
-2. Give execution permissions:
-
-```bash
-chmod +x anydesk-maintenance.sh
-```
-
-3. Run it as root:
-
-```bash
-sudo ./anydesk-maintenance.sh
-```
-
-## Manual macOS usage
-
-1. Download the file:
-
-```txt
-scripts/macos/anydesk-maintenance.sh
-```
-
-2. Give execution permissions:
-
-```bash
-chmod +x anydesk-maintenance.sh
-```
-
-3. Run it as root:
-
-```bash
-sudo ./anydesk-maintenance.sh
-```
-
-## Logs
-
-### Windows
-
-The latest execution log is saved to:
-
-```txt
-%TEMP%\AnyDesk_Maintenance_last.log
-```
-
-### Linux and macOS
-
-The latest execution log is saved to:
-
-```txt
-/tmp/anydesk-maintenance-last.log
-```
-
-The temporary working directory is removed at the end of the execution.
-
-## Recommended use cases
+## 🎯 Recommended use cases
 
 Use this toolkit when:
 
+- You are experiencing connection timeouts, "wait for connection" limits, or eternal wait times due to a corrupted identity state.
 - AnyDesk does not open correctly.
 - The AnyDesk service is stuck.
 - AnyDesk remains open in the background after closing it.
 - The application behaves incorrectly after an update.
-- You are experiencing connection timeouts, "wait for connection" limits, or eternal wait times due to a corrupted identity state.
 - You want a repeatable support procedure with logging.
 
-Do not use this toolkit to bypass access restrictions or modify auditing mechanisms.
+> [!WARNING]
+> Do not use this toolkit to bypass access restrictions or modify auditing mechanisms.
 
-## Responsible use
+## ⚖️ Responsible use
 
-This toolkit does not reset licenses or usage restrictions.
+This toolkit does not reset licenses or usage restrictions. It only performs maintenance tasks on service state, process state, selected user files, temporary data and logs. Only run these scripts on machines where you have explicit permission.
 
-It only performs maintenance tasks on service state, process state, selected user files, temporary data and logs.
-
-Only run these scripts on machines where you have explicit permission.
-
-## Security notice
-
-Review the script before running it, especially if you downloaded it from the internet.
-
-Do not execute remote scripts blindly from unknown sources.
-
-Do not share logs publicly if they include usernames, local paths, device names or organization-specific information.
-
-## License
-
-This project is licensed under the MIT License.
+Review the script before running it, especially if you downloaded it from the internet. Do not execute remote scripts blindly from unknown sources.
 
 ## Disclaimer
 
-This project is not affiliated with, endorsed by or sponsored by AnyDesk Software GmbH.
-
-AnyDesk is a trademark of its respective owner.
-
-These scripts are provided for authorized maintenance and troubleshooting only. Use them at your own risk.
+This project is not affiliated with, endorsed by or sponsored by AnyDesk Software GmbH. AnyDesk is a trademark of its respective owner. These scripts are provided for authorized maintenance and troubleshooting only. Use them at your own risk.
