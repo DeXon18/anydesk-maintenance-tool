@@ -1,9 +1,13 @@
 # AnyDesk Maintenance Toolkit
 
+![Version](https://img.shields.io/badge/version-0.1.0-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Shell](https://img.shields.io/badge/scripts-Batch%20%7C%20Bash-lightgrey)
 ![Status](https://img.shields.io/badge/status-active-success)
+![Last Commit](https://img.shields.io/github/last-commit/DeXon18/Anydesk-Maintenance-Tool)
+![Repo Size](https://img.shields.io/github/repo-size/DeXon18/Anydesk-Maintenance-Tool)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 Maintenance scripts for AnyDesk support tasks on Windows, Linux, and macOS.
 
@@ -83,9 +87,9 @@ It will not unlock paid features, remove commercial-use limits, alter licensing 
 <summary><strong>Linux</strong></summary>
 
 ```bash
-wget https://raw.githubusercontent.com/DeXon18/anydesk-maintenance-toolkit/main/scripts/linux/anydesk-maintenance.sh -O anydesk-maintenance.sh
+wget https://raw.githubusercontent.com/DeXon18/Anydesk-Maintenance-Tool/main/scripts/linux/anydesk-maintenance.sh -O anydesk-maintenance.sh
 chmod +x anydesk-maintenance.sh
-sudo ././anydesk-maintenance.sh
+sudo ./anydesk-maintenance.sh
 ```
 
 </details>
@@ -94,9 +98,9 @@ sudo ././anydesk-maintenance.sh
 <summary><strong>macOS</strong></summary>
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/DeXon18/anydesk-maintenance-toolkit/main/scripts/macos/anydesk-maintenance.sh -o anydesk-maintenance.sh
+curl -fsSL https://raw.githubusercontent.com/DeXon18/Anydesk-Maintenance-Tool/main/scripts/macos/anydesk-maintenance.sh -o anydesk-maintenance.sh
 chmod +x anydesk-maintenance.sh
-sudo ././anydesk-maintenance.sh
+sudo ./anydesk-maintenance.sh
 ```
 
 </details>
