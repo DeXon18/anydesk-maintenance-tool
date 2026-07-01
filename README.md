@@ -28,7 +28,7 @@ The primary feature of the Windows script is securely resetting the AnyDesk ID. 
 The fastest way to resolve eternal wait times or connection limits on Windows is via this one-liner. Open PowerShell as Administrator and run:
 
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DeXon18/anydesk-maintenance-toolkit/main/scripts/windows/anydesk-maintenance.cmd?v=$RANDOM" -OutFile "anydesk-maintenance.cmd"; (Get-Content "anydesk-maintenance.cmd") | Set-Content "anydesk-maintenance.cmd"; Start-Process "anydesk-maintenance.cmd" -Verb RunAs
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/DeXon18/Anydesk-Maintenance-Tool/main/scripts/windows/anydesk-maintenance.cmd?v=$RANDOM" -OutFile "$env:TEMP\anydesk-maintenance.cmd"; (Get-Content "$env:TEMP\anydesk-maintenance.cmd") | Set-Content "$env:TEMP\anydesk-maintenance.cmd"; Start-Process "$env:TEMP\anydesk-maintenance.cmd" -Verb RunAs
 ```
 
 ### Linux / macOS

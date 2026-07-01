@@ -10,6 +10,10 @@ MAJOR.MINOR.PATCH
 
 ## [Unreleased]
 
+### Fixed
+
+- Updated PowerShell one-liner in README to download script to `$env:TEMP` instead of current directory, preventing "Access Denied" errors when running without admin privileges in restricted folders.
+
 ### Planned
 
 - Add Linux maintenance script.
