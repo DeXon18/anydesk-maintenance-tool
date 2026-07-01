@@ -1,6 +1,6 @@
 # AnyDesk Maintenance Toolkit
 
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux-blue)
+![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Shell](https://img.shields.io/badge/scripts-Batch%20%7C%20Bash-lightgrey)
 ![Status](https://img.shields.io/badge/status-active-success)
